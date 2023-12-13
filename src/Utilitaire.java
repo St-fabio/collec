@@ -31,8 +31,10 @@ public class Utilitaire {
 
         if (alreadyincollec(saisie, collec)) {
             System.out.println("Jeu déja dans la collection !!!");
+            addtocollection(collec);
         } else if (saisie.getPrix() == -1.0f) {
             System.out.println("Jeu inéxistant !!!");
+            addtocollection(collec);
         } else {
             collec.add(saisie);
         }

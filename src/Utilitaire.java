@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Utilitaire {
@@ -8,22 +9,28 @@ public class Utilitaire {
         String nom, console, version, lien;
         float prix;
 
-        System.out.print("Nom du jeu : ");
-        nom = lecteur.nextLine();
+        try {
+            System.out.print("Nom du jeu : ");
+            nom = lecteur.nextLine();
 
-        System.out.print("Console : ");
-        console = lecteur.nextLine();
+            System.out.print("Console : ");
+            console = lecteur.nextLine();
 
-        System.out.print("Version (Pal, Jap, US) : ");
-        version = lecteur.nextLine();
+            System.out.print("Version (Pal, Jap, US) : ");
+            version = lecteur.nextLine();
 
-        lien = link(nom, console, version);
+            lien = link(nom, console, version);
 
-        prix = PriceSearch.priceSearching(lien);
+            prix = PriceSearch.priceSearching(lien);
 
-        Jeu saisie = new Jeu(nom, console, version, prix, lien);
+            Jeu saisie = new Jeu(nom, console, version, prix, lien);
 
-        return saisie;
+            return saisie;
+        } catch (InputMismatchException e) {
+            lecteur.nextLine();
+            System.out.println("Mauvais type !!!");
+            return saisie();
+        }
     }
 
     public static void addtocollection(ArrayList<Jeu> collec) {

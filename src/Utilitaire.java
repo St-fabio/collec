@@ -48,38 +48,43 @@ public class Utilitaire {
     }
 
     public static String console(String nomConsole) {
-        String truConsole = "";
+        Scanner lecteur = new Scanner(System.in);
+
         if (nomConsole.equalsIgnoreCase("GBA")) {
-            truConsole = "gameboy-advance";
+            return "gameboy-advance";
         }
         if (nomConsole.equalsIgnoreCase("GBC")) {
-            truConsole = "gameboy-color";
+            return "gameboy-color";
         }
         if (nomConsole.equalsIgnoreCase("GB")) {
-            truConsole = "gameboy";
+            return "gameboy";
         }
         if (nomConsole.equalsIgnoreCase("GC")) {
-            truConsole = "gamecube";
+            return "gamecube";
         }
         if (nomConsole.equalsIgnoreCase("NDS")) {
-            truConsole = "nintendo-ds";
+            return "nintendo-ds";
         }
         if (nomConsole.equalsIgnoreCase("3DS")) {
-            truConsole = "nintendo-3ds";
+            return "nintendo-3ds";
         }
         if (nomConsole.equalsIgnoreCase("WII")) {
-            truConsole = "wii";
+            return "wii";
         }
         if (nomConsole.equalsIgnoreCase("NES")) {
-            truConsole = "nes";
+            return "nes";
         }
         if (nomConsole.equalsIgnoreCase("SNES")) {
-            truConsole = "super-nintendo";
+            return "super-nintendo";
         }
         if (nomConsole.equalsIgnoreCase("N64")) {
-            truConsole = "nintendo-64";
+            return  "nintendo-64";
+        } else {
+            System.out.print("Console introuvable, resaisissez la console :");
+            nomConsole = lecteur.nextLine();
+            return console(nomConsole);
         }
-        return truConsole;
+
     }
 
     public static String link(String nom, String console, String version) {

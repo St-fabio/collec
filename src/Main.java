@@ -1,3 +1,4 @@
+import jdk.jshell.execution.Util;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -21,12 +22,9 @@ public class Main {
             start = lecteur.next().charAt(0);
         }
 
-        System.out.println("Prix total de la collection : " + Utilitaire.prixCollec(collection) + "$");
-        System.out.println("Nombre de jeux : " + collection.size());
+        Utilitaire.prixCollec(collection);
 
-        Jeu PrixMax = Utilitaire.JeuPlusCher(collection);
-
-        System.out.println("Jeu le plus cher : " + PrixMax.getNom() + " avec " + PrixMax.getPrix());
+        Utilitaire.JeuPlusCher(collection);
 
         Utilitaire.triCollec(collection);
 

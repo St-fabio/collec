@@ -79,6 +79,8 @@ public class Utilitaire {
         }
         if (nomConsole.equalsIgnoreCase("N64")) {
             return  "nintendo-64";
+        } if (nomConsole.equalsIgnoreCase("SWITCH")) {
+            return "nintendo-switch";
         } else {
             System.out.print("Console introuvable, resaisissez la console :");
             nomConsole = lecteur.nextLine();
@@ -143,12 +145,12 @@ public class Utilitaire {
         return new Jeu(nom, console, version, prix, lien);
     }
 
-    public static float prixCollec(ArrayList<Jeu> collec) {
+    public static void prixCollec(ArrayList<Jeu> collec) {
         float prixtotal = 0.0f;
         for (int i = 0; i < collec.size(); i++) {
             prixtotal =  prixtotal + collec.get(i).getPrix();
         }
-        return prixtotal;
+        System.out.println("La collection coute " + prixtotal + "$ pour un total de " + collec.size() + " jeux");
     }
 
     public static boolean alreadyincollec(Jeu unJeu, ArrayList<Jeu> collec) {
@@ -205,7 +207,7 @@ public class Utilitaire {
         }
     }
 
-    public static Jeu JeuPlusCher(ArrayList<Jeu> collec) {
+    public static void JeuPlusCher(ArrayList<Jeu> collec) {
         Jeu max = collec.get(0);
 
         for (int i = 1; i < collec.size(); i++) {
@@ -213,6 +215,7 @@ public class Utilitaire {
                 max = collec.get(i);
             }
         }
-        return max;
+
+        System.out.println("Le jeu le plus cher de la collection est " + max.getNom() + " avec un prix de " + max.getPrix() + "$");
     }
 }

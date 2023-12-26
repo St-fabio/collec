@@ -8,7 +8,7 @@ public class Main {
         ArrayList<Jeu> collection = new ArrayList<>();
         collection = ReadCollec.fileexistoorempty(collection);
 
-        System.out.print("Que voulez vous saisir un nouveau jeu ? (Y/N/S) ");
+        System.out.print("Voulez vous saisir un nouveau jeu ? (Y/N/S) ");
         char start = lecteur.next().charAt(0);
 
         while (start != 'N') {
@@ -17,12 +17,16 @@ public class Main {
             } if (start == 'S') {
                 Utilitaire.delete(collection);
             }
-            System.out.print("Que voulez vous saisir un nouveau jeu ? (Y/N/S) ");
+            System.out.print("Voulez vous saisir un nouveau jeu ? (Y/N/S) ");
             start = lecteur.next().charAt(0);
         }
 
         System.out.println("Prix total de la collection : " + Utilitaire.prixCollec(collection) + "$");
         System.out.println("Nombre de jeux : " + collection.size());
+
+        Jeu PrixMax = Utilitaire.JeuPlusCher(collection);
+
+        System.out.println("Jeu le plus cher : " + PrixMax.getNom() + " avec " + PrixMax.getPrix());
 
         Utilitaire.triCollec(collection);
 

@@ -205,4 +205,14 @@ public class Utilitaire {
         }
     }
 
+    public static Jeu JeuPlusCher(ArrayList<Jeu> collec) {
+        Jeu max = collec.get(0);
+
+        for (int i = 1; i < collec.size(); i++) {
+            if (collec.get(i).getPrix() > max.getPrix()) {
+                max = collec.get(i);
+            }
+        }
+        return max;
+    }
 }

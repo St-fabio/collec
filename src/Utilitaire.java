@@ -145,14 +145,6 @@ public class Utilitaire {
         return new Jeu(nom, console, version, prix, lien);
     }
 
-    public static void prixCollec(ArrayList<Jeu> collec) {
-        float prixtotal = 0.0f;
-        for (int i = 0; i < collec.size(); i++) {
-            prixtotal =  prixtotal + collec.get(i).getPrix();
-        }
-        System.out.println("La collection coute " + prixtotal + "$ pour un total de " + collec.size() + " jeux");
-    }
-
     public static boolean alreadyincollec(Jeu unJeu, ArrayList<Jeu> collec) {
         boolean existincollec = false;
         for (int i = 0; i < collec.size(); i++) {
@@ -205,6 +197,20 @@ public class Utilitaire {
                 j++;
             }
         }
+    }
+
+    public static void affichefin(ArrayList<Jeu> collec) {
+        prixCollec(collec);
+
+        JeuPlusCher(collec);
+    }
+
+    public static void prixCollec(ArrayList<Jeu> collec) {
+        float prixtotal = 0.0f;
+        for (int i = 0; i < collec.size(); i++) {
+            prixtotal =  prixtotal + collec.get(i).getPrix();
+        }
+        System.out.println("La collection coute " + prixtotal + "$ pour un total de " + collec.size() + " jeux");
     }
 
     public static void JeuPlusCher(ArrayList<Jeu> collec) {

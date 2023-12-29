@@ -3,6 +3,29 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Utilitaire {
+
+    public static char présaisie() {
+        Scanner lecteur = new Scanner(System.in);
+        char start;
+
+        try {
+            System.out.print("Voulez vous saisir un nouveau jeu ? (Y/N/S) ");
+            start = lecteur.next().charAt(0);
+            if (start == 'n') {
+                return  'N';
+            } else if (start == 'y') {
+                return 'Y';
+            } else if (start == 's') {
+                return 'S';
+            }
+        } catch (InputMismatchException e) {
+            lecteur.nextLine();
+            System.out.println("Mauvais type !!!");
+            start = 'N';
+
+        }
+        return start;
+    }
     public static Jeu saisie() {
         Scanner lecteur = new Scanner(System.in);
 

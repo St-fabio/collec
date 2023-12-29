@@ -209,7 +209,7 @@ public class Utilitaire {
                 permut = false;
                 int i = collec.size() - 1;
                 while (i > j) {
-                    if (collec.get(i-1).getConsole().compareTo(collec.get(i).getConsole()) > 0) {
+                    if (collec.get(i-1).getConsole().compareTo(collec.get(i).getConsole()) > 0 | (collec.get(i-1).getConsole().compareTo(collec.get(i).getConsole()) == 0 & collec.get(i-1).getNom().compareTo(collec.get(i).getNom()) > 0)) {
                         Jeu temp = collec.get(i-1);
                         collec.set(i - 1, collec.get(i));
                         collec.set(i, temp);
